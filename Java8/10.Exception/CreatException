@@ -1,0 +1,50 @@
+@Date 2017-9-16 13.32
+以前在学基础的时候没看懂这个创建异常半知半解的，现在好点了
+1.异常既是不满足条件会输出的提示
+2.throw抛出的需要最后的catch来处理，
+3.如果没有MyException类的toString，那么输出将会变成
+Called compute(1}
+Normal exit
+Called compute(20}
+Caught Exception.MyException
+将会，只输出异常种类，如果需要说明的话需要重写toString来说明
+
+public class MyException extends Exception
+{
+	private int detail;
+	MyException(int a)
+	{
+		detail = a;
+	}
+	public String toString(){
+		return "MyException{" + detail + "}";
+	}
+}
+
+
+
+public class ExceptionDemo 
+{
+	static void compute(int a) throws MyException{
+		System.out.println("Called compute(" + a + "}");
+		if(a>10)
+			throw new MyException(a);
+		System.out.println("Normal exit");
+	}
+	public static void main(String args[]){
+		try{
+			compute(1);
+			compute(20);
+		}catch(MyException e){
+			System.out.println("Caught "+ e);
+		}
+	}
+
+}
+
+
+
+Called compute(1}
+Normal exit
+Called compute(20}
+Caught MyException{20}
