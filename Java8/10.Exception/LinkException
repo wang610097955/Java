@@ -1,11 +1,12 @@
 @Date 2017-9-16 13.47
-链式异常既是，异常关联另一个异常，
-假设某个方法由于试图除零而抛出ArithmeticException异常，但是导致问题发生的实际原因是发生一个I/O错误
-initCause我个人认为是一个异常关联另外一个异常，比如列子中e的异常关联new创建的异常
+1.链式异常既是，异常关联另一个异常，
+2.假设某个方法由于试图除零而抛出ArithmeticException异常，但是导致问题发生的实际原因是发生一个I/O错误
+3.initCause我个人认为是一个异常关联另外一个异常，比如列子中e的异常关联new创建的异常
 e.getcause是说明链接另外一个异常的说明，如果去除掉e.initCause(new ArithmeticException("cause")
 那么结果会变成
 Caught: java.lang.NullPointerException: top layer
 Original cause:null
+4.用于那些需要使用背后原因信息的情况，链式异常是完美的解决方案
 
 
 public class ChainExcDemo 
