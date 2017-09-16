@@ -1,0 +1,32 @@
+@Date 2017-9-16 13.24
+
+RuntimeException 遗产本身编译器会处理，所以不必太担心
+                     RuntimeException
+ArithmeticException             算术清零，ex除零
+ArrayIndexOutOfBoundsException  数组牵引越界 int a[] = new int[5]    a[5] is error
+ArrayStoreException             使用不兼容的类型位数组元素赋值
+ClassCastException              无效转换
+EnumConstantNotPresentException 试图使用未定义的枚举值
+IllegalArgumentException        使用非法参数调用方法
+IllegalArgumentException        非法的监视操作，列入等待未锁定的线程
+IllegalStateException           环境或应用程序处于不正确的状态
+IllegalThreadStateException     请求的操作与当前线程状态不兼容
+IndexOutBoundsException         某些类型的索引越界
+NegativeArraySizeException      使用负数长度创建数组
+NullPointerException            非法使用空引用
+NumberFormatException           字符串到数值格式的无效转换
+SecurityException               试图违反安全性
+StringIndexOutOfBounds          试图在字符串边界之外进行所以
+TpeNotPResentException          类型未找到
+UnsupportedOperationException   遇到不支持的操作
+
+Java.lang中定义的经检查的异常，需要抛出throws
+
+ClassNotFoundException          类未找到
+CloneNotSupportedException      试图复制没有实现Cloneable接口的对象
+IllegalAccessException          对类的访问被拒绝
+InstantiationException          试图为抽象类或接口创建对象
+InteruptedException             一个线程被另一个线程中断
+NoSuchFieldException            请求的域变量不存在
+NoSuchMethodException           请求的方法不存在
+ReflectiveOperatonException     与反射相关的异常
