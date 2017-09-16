@@ -1,0 +1,35 @@
+@Date 2017-9-16 13.47
+链式异常既是，异常关联另一个异常，
+假设某个方法由于试图除零而抛出ArithmeticException异常，但是导致问题发生的实际原因是发生一个I/O错误
+initCause我个人认为是一个异常关联另外一个异常，比如列子中e的异常关联new创建的异常
+e.getcause是说明链接另外一个异常的说明，如果去除掉e.initCause(new ArithmeticException("cause")
+那么结果会变成
+Caught: java.lang.NullPointerException: top layer
+Original cause:null
+
+
+public class ChainExcDemo 
+{
+	static void demoproc(){
+		//creat an exception
+		NullPointerException e = new NullPointerException("top layer");
+		//add a cause
+		e.initCause(new ArithmeticException("cause"));
+		throw e;
+	}
+	public static void main(String[] args)
+	{
+		try{
+			demoproc();
+		}catch(NullPointerException e){
+			//display top level exception
+			System.out.println("Caught: " + e);
+			//display cause exception
+			System.out.println("Original cause:"+e.getCause());
+		}
+	}
+
+}
+
+Caught: java.lang.NullPointerException: top layer
+Original cause:java.lang.ArithmeticException: cause
