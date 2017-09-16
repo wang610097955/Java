@@ -1,4 +1,5 @@
 @Date 2017-9-16 13.01;
+@page 230 top!
 1.现在任然有点迷惑，catch是抓取抛掉的Exception
 2.没有throw new IllegalAccessException，程序任然可以运行，只是运行结果少了caught java.lang.IllegalAccessException.demo
 package Exception;
