@@ -1,0 +1,25 @@
+@Date 2017-9-21 22:37
+about apllation of currentTimeMills
+public class aaaa {
+    public static void main(String[] args) throws Exception {
+        //-------用途一 计算某任务 耗费的毫秒
+        long start = System.currentTimeMillis();
+        for (int i = 0; i < 5; i++) {
+            Thread.sleep(10);
+        }
+        long end = System.currentTimeMillis();
+        System.out.println("for循环耗时" + (end - start) + "毫秒");
+ 
+        //--------用途二  获得当前的系统时间
+        Date nowTime = new Date(System.currentTimeMillis());
+        SimpleDateFormat sdFormatter = new SimpleDateFormat("yyyy-MM-dd");
+        String now = sdFormatter.format(nowTime);
+        System.out.println(now);// 时间的输出
+         
+        //-------用途三:用当前毫秒数给文件命名等
+        File f = new File("c:\\"+System.currentTimeMillis() + "");
+        f.createNewFile();
+         
+        //其他用途,比如随机数的种子数等
+    }
+}
